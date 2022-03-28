@@ -1,6 +1,8 @@
 <template>
-  <div class="hello">
+  <div v-if="!dataLoaded">Chargement ...</div>
+  <div v-else class="hello">
     <h1>{{ msg }}</h1>
+    <h2>{{ players[0].avatar }}</h2>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -10,6 +12,11 @@
     </p>
     <h3>Installed CLI Plugins</h3>
     <ul>
+      <li>
+        <div class="alert alert-primary" role="alert">
+          A simple primary alert—check it out!
+        </div>
+      </li>
       <li>
         <a
           href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
@@ -127,6 +134,9 @@
 </template>
 
 <script lang="ts">
+import testBusinessService from "@/core/data-access/business/test-business.service";
+import { GetAllPlayers } from "@/core/models/data/players/get-all-players";
+import { ResponseData } from "@/core/models/data/response-data";
 import { Options, Vue } from "vue-class-component";
 
 @Options({
@@ -136,6 +146,29 @@ import { Options, Vue } from "vue-class-component";
 })
 export default class HelloWorld extends Vue {
   msg!: string;
+  public players: GetAllPlayers[] = [];
+  public dataLoaded = false;
+
+  // TODO testbusiness service en injection de dependance ?
+  mounted() {
+    console.log("Hello world mounted");
+    this.getAllPlayers().then(() => {
+      console.log(this.players);
+      this.dataLoaded = true;
+    });
+  }
+
+  public getAllPlayers() {
+    return testBusinessService
+      .getAllPlayers()
+      .then((res: ResponseData<GetAllPlayers[]>) => {
+        console.log(res.data);
+        this.players = res.data;
+      })
+      .catch((err: unknown) => {
+        console.log(err);
+      });
+  }
 }
 </script>
 
