@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "format:write": "prettier **/*.{ts,json,md,scss,vue,js} --write"
   },
   "dependencies": {
     "axios": "^0.26.1",
