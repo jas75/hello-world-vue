@@ -1,5 +1,5 @@
-var faker = require("faker");
-
+var faker = require("@faker-js/faker").faker;
+// var axios = require("axios");
 var database = { products: [] };
 
 for (var i = 1; i <= 1000; i++) {
