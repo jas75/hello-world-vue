@@ -8,7 +8,7 @@
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "format:write": "prettier **/*.{ts,json,md,scss,vue,js} --write",
-    "start:fake-api": "json-server --watch ./mock/db.json && node server.js"
+    "start:fake-api": "concurrently \"json-server --watch ./mock/db.json --port 3004\" \"node ./server/server.js \""
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -39,6 +39,7 @@
     "@vue/test-utils": "^2.0.0-0",
     "@vue/vue3-jest": "^27.0.0-alpha.1",
     "babel-jest": "^27.0.6",
+    "concurrently": "^7.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

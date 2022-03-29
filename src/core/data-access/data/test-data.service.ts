@@ -8,7 +8,11 @@ class TestDataService {
   }
 
   public login() {
-    return http.post("http://localhost:3000/api/auth/login");
+    const data = {
+      email: "nilson@email.com",
+      password: "nilson",
+    };
+    return http.post("http://localhost:3000/api/auth/login", data);
   }
 }
 
