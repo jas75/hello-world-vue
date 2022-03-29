@@ -6,6 +6,10 @@ class TestBusinessService {
   public getAllPlayers(): Promise<ResponseData<GetAllPlayers[]>> {
     return testDataService.getAllPlayers();
   }
+
+  public login() {
+    return testDataService.login();
+  }
 }
 
 export default new TestBusinessService();

@@ -151,11 +151,12 @@ export default class HelloWorld extends Vue {
 
   // TODO testbusiness service en injection de dependance ?
   mounted() {
+    testBusinessService.login();
     console.log("Hello world mounted");
-    this.getAllPlayers().then(() => {
-      console.log(this.players);
-      this.dataLoaded = true;
-    });
+    // this.getAllPlayers().then(() => {
+    //   console.log(this.players);
+    //   this.dataLoaded = true;
+    // });
   }
 
   public getAllPlayers() {

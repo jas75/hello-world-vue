@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "format:write": "prettier **/*.{ts,json,md,scss,vue,js} --write"
+    "format:write": "prettier **/*.{ts,json,md,scss,vue,js} --write",
+    "start:fake-api": "json-server --watch ./mock/db.json && node server.js"
   },
   "dependencies": {
     "axios": "^0.26.1",

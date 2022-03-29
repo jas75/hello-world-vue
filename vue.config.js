@@ -4,7 +4,7 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       "^/api": {
-        target: "https://devmariokart.docker.3ie.fr/",
+        target: "http://localhost:3000/",
         changeOrigin: true,
       },
     },
