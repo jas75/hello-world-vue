@@ -12,7 +12,15 @@ class TestDataService {
       email: "nilson@email.com",
       password: "nilson",
     };
-    return http.post("http://localhost:3000/api/auth/login", data);
+    return http.post("http://localhost:3000/login", data);
+  }
+
+  public register() {
+    const data = {
+      email: "nilson@email.com",
+      password: "nilson",
+    };
+    return http.post("http://localhost:3000/register", data);
   }
 }
 

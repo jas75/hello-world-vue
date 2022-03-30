@@ -10,6 +10,10 @@ class TestBusinessService {
   public login() {
     return testDataService.login();
   }
+
+  public register() {
+    return testDataService.register();
+  }
 }
 
 export default new TestBusinessService();
